@@ -13,6 +13,8 @@ export class MainMenuComponent implements OnInit {
   facilitiesIcon = faDatabase;
   newRequestIcon = faPlus;
 
+  value = "asdf";
+
   constructor(private requestsService : RequestsService) { }
 
   ngOnInit(): void {

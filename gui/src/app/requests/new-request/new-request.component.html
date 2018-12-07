@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <mat-spinner class="ml-auto mr-auto mt-3" *ngIf="loading" color=""></mat-spinner>
 
   <div *ngIf="!loading" class="card mt-4 mb-4 shadow-sm">
@@ -36,13 +36,13 @@
         </button>
 
         <div class="pull-right" *ngIf="this.isCardBodyVisible">
-          <button
+         <!-- <button
             role="button"
             mat-raised-button
             color="accent"
             (click)="saveRequest()">
             {{"REQUESTS.REQUEST_SAVE" | translate}}
-          </button>
+          </button>-->
           <button
             class="ml-2"
             type="submit"

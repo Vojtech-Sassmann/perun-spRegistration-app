@@ -105,7 +105,7 @@ export class NewRequestComponent implements OnInit {
     this.items.forEach(i => i.onFormSubmitted());
 
     if (!this.attributesHasCorrectValues()) {
-      this.snackBar.open(this.errorText, null, {duration: 40000, horizontalPosition: 'end', verticalPosition: 'top'});
+      this.snackBar.open(this.errorText, null, {duration: 6000});
       return;
     }
 
@@ -118,7 +118,7 @@ export class NewRequestComponent implements OnInit {
     });
 
     this.requestsService.createRegistrationRequest(perunAttributes).subscribe(requestId => {
-      this.snackBar.open(this.successfullySubmittedText, null, {duration: 3000, horizontalPosition: 'start'});
+      this.snackBar.open(this.successfullySubmittedText, null, {duration: 6000});
     }, error => {
       console.log("Error");
       console.log(error);

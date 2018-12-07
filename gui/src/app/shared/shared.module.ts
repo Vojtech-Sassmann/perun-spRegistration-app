@@ -11,11 +11,18 @@ import { RouterModule } from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {
   MatButtonModule,
-  MatCheckboxModule, MatIconModule,
+  MatCheckboxModule,
+  MatIconModule,
   MatInputModule,
   MatProgressSpinnerModule,
   MatRadioModule,
-  MatSelectModule, MatSnackBarModule, MatSortModule, MatTableModule, MatToolbarModule, MatTooltipModule
+  MatSelectModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatTooltipModule
 } from "@angular/material";
 
 @NgModule({
@@ -35,7 +42,9 @@ import {
     MatSnackBarModule,
     MatIconModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    TranslateModule,
+    MatSidenavModule
   ],
   declarations: [
     SortableColumnComponent,
@@ -64,7 +73,8 @@ import {
     MatSnackBarModule,
     MatIconModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatSidenavModule
   ]
 })
 export class SharedModule { }

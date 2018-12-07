@@ -35,7 +35,7 @@ public class RequestMapper implements RowMapper<Request> {
 		Map<String, PerunAttribute> attrs = mapAttributes(attrsJsonStr);
 
 		Request request = new Request();
-		request.setReqId(resultSet.getLong("id"));
+		request.setId(resultSet.getLong("id"));
 		request.setFacilityId(resultSet.getLong("facility_id"));
 		if (resultSet.wasNull()) {
 			request.setFacilityId(null);

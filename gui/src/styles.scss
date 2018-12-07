@@ -63,6 +63,11 @@ a:hover {
 .clickable {
   cursor: pointer;
 }
+
+.no-focus-outline:focus {
+  outline: none;
+}
+
 .perun-small-btn {
   height: auto;
   min-width: 1% !important;

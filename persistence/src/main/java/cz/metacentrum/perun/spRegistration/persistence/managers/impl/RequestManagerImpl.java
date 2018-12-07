@@ -70,7 +70,7 @@ public class RequestManagerImpl implements RequestManager {
 		String query = "UPDATE" + REQUESTS_TABLE +
 				"SET facility_id = :fac_id, status = :status, action = :action, req_user_id = :req_user_id, " +
 				"attributes = :attributes, modified_by = :modified_by, modified_at = :modified_at " +
-				"WHERE req_id = :req_id";
+				"WHERE id = :id";
 
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("fac_id", request.getFacilityId());
@@ -80,7 +80,7 @@ public class RequestManagerImpl implements RequestManager {
 		params.addValue("attributes", request.getAttributesAsJsonForDb());
 		params.addValue("modified_by", request.getModifiedBy());
 		params.addValue("modified_at", request.getModifiedAt());
-		params.addValue("req_id", request.getReqId());
+		params.addValue("id", request.getId());
 
 		jdbcTemplate.update(query, params);
 		return true;
@@ -89,10 +89,10 @@ public class RequestManagerImpl implements RequestManager {
 	@Override
 	public boolean deleteRequest(Long reqId) throws DatabaseException {
 		String query = "DELETE FROM" + REQUESTS_TABLE +
-				"WHERE req_id = :req_id";
+				"WHERE id = :id";
 
 		MapSqlParameterSource params = new MapSqlParameterSource();
-		params.addValue("req_id", reqId);
+		params.addValue("id", reqId);
 
 		jdbcTemplate.update(query, params);
 		return true;
@@ -101,10 +101,10 @@ public class RequestManagerImpl implements RequestManager {
 	@Override
 	public Request getRequestByReqId(Long reqId) {
 		String query = "SELECT * FROM" + REQUESTS_TABLE +
-				"WHERE req_id = :req_id";
+				"WHERE id = :id";
 
 		MapSqlParameterSource params = new MapSqlParameterSource();
-		params.addValue("req_id", reqId);
+		params.addValue("id", reqId);
 
 		return jdbcTemplate.queryForObject(query, params, mapper);
 	}

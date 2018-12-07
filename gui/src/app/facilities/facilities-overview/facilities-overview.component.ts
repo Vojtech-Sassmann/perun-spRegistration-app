@@ -35,16 +35,27 @@ export class FacilitiesOverviewComponent implements OnInit, OnDestroy {
     }
   ];
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) set matSort(ms: MatSort) {
+    this.sort = ms;
+    this.setDataSource();
+  }
 
   displayedColumns: string[] = ['id', 'name'];
   dataSource: MatTableDataSource<Facility>;
   loading = true;
 
+  private sort: MatSort;
   private facilitiesSubscription: Subscription;
+
+  setDataSource() {
+    if (!!this.dataSource) {
+      this.dataSource.sort = this.sort;
+    }
+  }
 
   ngOnInit() {
     this.facilitiesSubscription = this.facilitiesService.getMyFacilities().subscribe(facilities => {
+      // TODO: uncomment this
       // this.facilities = facilities;
       this.dataSource = new MatTableDataSource<Facility>(this.facilities);
       this.dataSource.sort = this.sort;

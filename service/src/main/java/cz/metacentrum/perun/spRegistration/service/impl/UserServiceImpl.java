@@ -11,6 +11,7 @@ import cz.metacentrum.perun.spRegistration.persistence.rpc.PerunConnector;
 import cz.metacentrum.perun.spRegistration.service.ServiceUtils;
 import cz.metacentrum.perun.spRegistration.service.UserService;
 import cz.metacentrum.perun.spRegistration.service.exceptions.CannotChangeStatusException;
+import cz.metacentrum.perun.spRegistration.service.exceptions.ResourceNotFoundException;
 import cz.metacentrum.perun.spRegistration.service.exceptions.UnauthorizedActionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -150,8 +151,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Request getDetailedRequest(Long requestId, Long userId) throws UnauthorizedActionException {
-		if (! isAdminInRequest(requestId, userId)) {
+	public Request getDetailedRequest(Long requestId, Long userId) throws UnauthorizedActionException, ResourceNotFoundException {
+		Request request = requestManager.getRequestByReqId(requestId);
+		if (request == null) {
+			throw new ResourceNotFoundException("Resource for given id does not exist.");
+		}
+		if (! isAdminInRequest(request.getReqUserId(), userId)) {
 			throw new UnauthorizedActionException("User cannot view request, user is not a requester");
 		}
 		return requestManager.getRequestByReqId(requestId);
@@ -200,7 +205,7 @@ public class UserServiceImpl implements UserService {
 		request.setModifiedAt(new Timestamp(System.currentTimeMillis()));
 
 		Long requestId = requestManager.createRequest(request);
-		request.setReqId(requestId);
+		request.setId(requestId);
 
 		return requestId;
 	}

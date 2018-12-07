@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class Request {
 
-	private Long reqId;
+	private Long id;
 	private Long facilityId;
 	private RequestStatus status;
 	private RequestAction action;
@@ -28,12 +28,12 @@ public class Request {
 	private Timestamp modifiedAt;
 	private Long modifiedBy;
 
-	public Long getReqId() {
-		return reqId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setReqId(Long reqId) {
-		this.reqId = reqId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getFacilityId() {

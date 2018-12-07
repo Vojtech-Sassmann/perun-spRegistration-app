@@ -1,3 +1,11 @@
-<p>
-  request-detail works!
-</p>
+<div class="container-fluid">
+  <mat-spinner class="ml-auto mr-auto mt-3" *ngIf="loading" color=""></mat-spinner>
+  <div *ngIf="!loading" class="card mt-4 shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title">
+        {{'REQUESTS.REQUEST_DETAIL_TITLE' | translate}}{{request.id}}
+      </h2>
+        {{'REQUESTS.REQUEST_DETAIL_STATUS' | translate}}{{request.status}}
+    </div>
+  </div>
+</div>

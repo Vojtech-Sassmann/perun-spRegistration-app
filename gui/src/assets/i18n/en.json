@@ -1,4 +1,12 @@
 {
+  "TITLE" : "Service registration",
+  "MENU": {
+    "HOME": "Home",
+    "REQUESTS": "Requests",
+    "FACILITIES": "Facilities",
+    "NEW_REQUEST": "New request",
+    "MY_REQUESTS": "My requests"
+  },
   "REQUESTS": {
     "TITLE": "My requests",
     "YOUR_REQUESTS": "Your requests",
@@ -22,7 +30,9 @@
     "NEW_FILL_ATTRS": "Fill information:",
     "NEW_VALUES_ERROR_MESSAGE": "Please, fill out all of the required fields.",
     "REQUEST_SAVE": "Save",
-    "SUCCESSFULLY_SUBMITTED_MESSAGE": "Request has been submitted."
+    "SUCCESSFULLY_SUBMITTED_MESSAGE": "Request has been submitted.",
+    "REQUEST_DETAIL_TITLE" : "Request #",
+    "REQUEST_DETAIL_STATUS" : "Status: "
   },
   "FACILITIES": {
     "TITLE": "Facilities",

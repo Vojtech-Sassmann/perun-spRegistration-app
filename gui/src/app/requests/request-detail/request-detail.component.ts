@@ -1,6 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
+import {RequestsService} from "../../core/services/requests.service";
+import {Request} from "../../core/models/Request";
 
 @Component({
   selector: 'app-request-detail',
@@ -9,14 +11,23 @@ import {Subscription} from "rxjs";
 })
 export class RequestDetailComponent implements OnInit, OnDestroy {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private requestsService: RequestsService
+  ) { }
 
   private sub : Subscription;
 
+  loading = true;
+  request: Request;
+
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      console.log(params['id']);
-    })
+      this.requestsService.getRequest(params['id']).subscribe(request => {
+        this.request = request;
+        this.loading = false;
+      });
+    });
   }
 
   ngOnDestroy(): void {

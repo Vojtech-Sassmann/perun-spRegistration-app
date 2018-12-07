@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light border-bottom fixed-top">
+<!--<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light border-bottom fixed-top">
   <a class="navbar-brand ml-1 mt-1 mb-1" routerLink="">
-    <img src="assets/img/perun_3.svg" class="perun-logo">
+    {{'TITLE' | translate}}
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
           aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,24 +8,24 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <!--used to align navbar items to the right-->
+    &lt;!&ndash;used to align navbar items to the right&ndash;&gt;
     <ul class="navbar-nav mr-auto">
     </ul>
 
     <ul class="navbar-nav">
-      <li class="nav-item p-2" [class.active]="currentUrl != undefined && currentUrl === '/'">
+      <li class="nav-item p-2" [class.active]="!!currentUrl && currentUrl === '/'">
         <a class="no-hover-decoration" routerLink="">
           <fa-icon [icon]="faHome"></fa-icon>
           Home
         </a>
       </li>
-      <li class="nav-item p-2" [class.active]="currentUrl != undefined && currentUrl.startsWith('/requests')">
+      <li class="nav-item p-2" [class.active]="!!currentUrl && currentUrl.startsWith('/requests')">
         <a class="no-hover-decoration" routerLink="requests">
           <fa-icon [icon]="faRequests"></fa-icon>
           Requests
         </a>
       </li>
-      <li class="nav-item p-2" [class.active]="currentUrl != undefined && currentUrl.startsWith('/facilities')">
+      <li class="nav-item p-2" [class.active]="!!currentUrl && currentUrl.startsWith('/facilities')">
         <a class="no-hover-decoration" routerLink="facilities">
           <fa-icon [icon]="faFacilities"></fa-icon>
           Facilities
@@ -34,3 +34,5 @@
     </ul>
   </div>
 </nav>
+-->
+

@@ -6,7 +6,7 @@ import {RequestDetailComponent} from "./request-detail/request-detail.component"
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'myRequests',
     component: RequestsOverviewComponent
   },
   {

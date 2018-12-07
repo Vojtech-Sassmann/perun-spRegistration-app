@@ -4,8 +4,46 @@
   position: sticky;
 }
 
+.site-title {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.perun-sidenav {
+  background-color: #fafafa;
+  padding: 1em;
+  min-width: 200px;
+}
+
+.right-spacer {
+  width: 200px;
+  background-color: #fafafa;
+}
+
+.active {
+  > a {
+    color: rgba(0, 0, 0, .90) !important;
+  }
+}
+
 .perun-content {
   padding-top: 5rem;
   background: #f8f8f8;
   min-height: 80vh;
+}
+.example-container {
+  //width: auto;
+  margin-top: 64px;
+  min-height: 100vh;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
 }

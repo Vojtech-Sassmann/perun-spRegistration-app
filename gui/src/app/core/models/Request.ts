@@ -2,7 +2,7 @@ import {RequestStatus} from "./RequestStatus";
 import {RequestAction} from "./RequestAction";
 
 export interface Request {
-  reqId: number,
+  id: number,
   facilityId: number,
   status: RequestStatus,
   action: RequestAction,
