@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="fixed-top">
+<mat-toolbar color="primary" class="fixed-top mat-elevation-z4">
   <button mat-icon-button
           class="mr-2 no-focus-outline d-block d-sm-none"
           (click)="sidenav.toggle()">
@@ -29,12 +29,12 @@
           {{'MENU.REQUESTS' | translate}}
         </a>
         <ul class="navbar-nav pt-1">
-          <li class="nav-item pl-2" [class.active]="currentUrl !== undefined && currentUrl === '/requests/myRequests'">
+          <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/myRequests'">
             <a class="no-hover-decoration" routerLink="/requests/myRequests">
               {{'MENU.MY_REQUESTS' | translate}}
             </a>
           </li>
-          <li class="nav-item pl-2" [class.active]="currentUrl !== undefined && currentUrl === '/requests/new'">
+          <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/new'">
             <a class="no-hover-decoration" routerLink="requests/new">
               {{'MENU.NEW_REQUEST' | translate}}
             </a>

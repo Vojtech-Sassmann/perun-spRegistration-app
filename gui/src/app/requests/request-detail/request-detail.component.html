@@ -1,11 +1,29 @@
 <div class="container-fluid">
   <mat-spinner class="ml-auto mr-auto mt-3" *ngIf="loading" color=""></mat-spinner>
-  <div *ngIf="!loading" class="card mt-4 shadow-sm">
+  <div *ngIf="!loading" class="card mt-4 mb-4 shadow-sm">
     <div class="card-body">
       <h2 class="card-title">
         {{'REQUESTS.REQUEST_DETAIL_TITLE' | translate}}{{request.id}}
       </h2>
-        {{'REQUESTS.REQUEST_DETAIL_STATUS' | translate}}{{request.status}}
+      {{'REQUESTS.REQUEST_DETAIL_STATUS' | translate}}{{request.status}}
+      <br/>
+      {{'REQUESTS.REQUEST_DETAIL_EDITED' | translate}}{{request.modifiedAt | date}}
+      <h4 class="mt-4">{{'REQUESTS.REQUEST_DETAIL_ITEMS' | translate}}</h4>
+
+      <table mat-table [dataSource]="requestItems" class="w-100">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>{{'REQUESTS.REQUEST_DETAIL_ITEM_NAME' | translate}}</th>
+          <td mat-cell *matCellDef="let item">{{item.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef>{{'REQUESTS.REQUEST_DETAIL_ITEM_VALUE' | translate}}</th>
+          <td mat-cell *matCellDef="let item">{{item.value}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-dark"></tr>
+      </table>
+
     </div>
   </div>
 </div>

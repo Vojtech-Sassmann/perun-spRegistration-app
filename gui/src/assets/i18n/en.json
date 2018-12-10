@@ -26,13 +26,18 @@
     "MAP_VALUE": "Value",
     "LIST_VALUE": "Value",
     "NEW_TITLE": "Submit new request",
+    "NEW_INVALID_VALUE" : "Given value is invalid!",
     "NEW_SELECT_TYPE": "Select service type:",
     "NEW_FILL_ATTRS": "Fill information:",
     "NEW_VALUES_ERROR_MESSAGE": "Please, fill out all of the required fields.",
     "REQUEST_SAVE": "Save",
     "SUCCESSFULLY_SUBMITTED_MESSAGE": "Request has been submitted.",
     "REQUEST_DETAIL_TITLE" : "Request #",
-    "REQUEST_DETAIL_STATUS" : "Status: "
+    "REQUEST_DETAIL_STATUS" : "Status: ",
+    "REQUEST_DETAIL_EDITED" : "Edited on: ",
+    "REQUEST_DETAIL_ITEMS" : "Requested items:",
+    "REQUEST_DETAIL_ITEM_NAME" : "Name",
+    "REQUEST_DETAIL_ITEM_VALUE" : "Value"
   },
   "FACILITIES": {
     "TITLE": "Facilities",

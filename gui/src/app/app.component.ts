@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {faDatabase, faEnvelope, faHome} from "@fortawesome/free-solid-svg-icons";
 import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
@@ -11,9 +10,6 @@ import {NavigationEnd, Router} from "@angular/router";
 export class AppComponent {
 
   opened = true;
-  faHome = faHome;
-  faRequests = faEnvelope;
-  faFacilities = faDatabase;
 
   currentUrl: string;
 
@@ -26,7 +22,6 @@ export class AppComponent {
     translate.use('en');
     router.events.subscribe((_: NavigationEnd) => {
       this.currentUrl = this.router.url;
-      console.log(this.currentUrl);
     });
   }
 }
