@@ -10,13 +10,8 @@
 
           <mat-option *ngFor="let value of applicationItem.allowedValues" [value]="value">{{value}}</mat-option>
         </mat-select>
+        <mat-hint>{{translatedDescription}}</mat-hint>
       </mat-form-field>
-      <fa-icon
-        matTooltip="{{translatedDescription}}"
-        [matTooltipPosition]="'above'"
-        class="m-2 text-secondary fa-lg"
-        [icon]="helpIcon">
-      </fa-icon>
     </div>
   </form>
 </div>

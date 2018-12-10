@@ -14,12 +14,10 @@
             add_box
           </mat-icon>
         </button>
-        <fa-icon
-          matTooltip="{{translatedDescription}}"
-          [matTooltipPosition]="'above'"
-          class="m-2 text-secondary fa-lg pull-right"
-          [icon]="helpIcon">
-        </fa-icon>
+        <div>
+          <hr class="hr">
+          <p class="p">{{translatedDescription}}</p>
+        </div>
         <div class="mr-5">
           <div *ngFor="let value of values; let i = index; trackBy: customTrackBy" class="d-flex mb-1">
             <mat-form-field class="w-100 mr-2">
