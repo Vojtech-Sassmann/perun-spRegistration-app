@@ -5,6 +5,7 @@ import cz.metacentrum.perun.spRegistration.persistence.models.PerunAttribute;
 import cz.metacentrum.perun.spRegistration.persistence.models.Request;
 import cz.metacentrum.perun.spRegistration.service.UserService;
 import cz.metacentrum.perun.spRegistration.service.exceptions.CannotChangeStatusException;
+import cz.metacentrum.perun.spRegistration.service.exceptions.ResourceNotFoundException;
 import cz.metacentrum.perun.spRegistration.service.exceptions.UnauthorizedActionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -140,8 +141,9 @@ public class UserController {
 
 	@RequestMapping(path = "/api/request/{requestId}")
 	public Request requestDetail(@SessionAttribute("userId") Long userId,
-							  @PathVariable("requestId") Long requestId) throws UnauthorizedActionException {
+							  @PathVariable("requestId") Long requestId)
+			throws UnauthorizedActionException, ResourceNotFoundException {
+
 		return service.getDetailedRequest(requestId, userId);
 	}
-
 }

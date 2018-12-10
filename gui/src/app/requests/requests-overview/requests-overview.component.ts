@@ -1,11 +1,8 @@
-import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { Request } from "../../core/models/Request";
-import { ColumnSortedEvent } from "../../core/services/sort.service";
-import { RequestStatus } from "../../core/models/RequestStatus";
-import { RequestAction } from "../../core/models/RequestAction";
 import { RequestsService } from "../../core/services/requests.service";
 import { Subscription } from "rxjs";
-import {MatRow, MatSort, MatTableDataSource} from "@angular/material";
+import { MatSort, MatTableDataSource} from "@angular/material";
 
 @Component({
   selector: 'app-requests-overview',
@@ -17,54 +14,33 @@ export class RequestsOverviewComponent implements OnInit, OnDestroy {
   constructor(private requestsService: RequestsService) { }
 
   @Input()
-  requests: Request[] = [
-    {
-      reqId: 1,
-      facilityId: 2,
-      status: RequestStatus.CANCELED,
-      action: RequestAction.DELETE_FACILITY,
-      reqUserId: 3,
-      attributes: [],
-      modifiedAt: '10:20 12-12-2018',
-      modifiedBy: 3
-    },
-    {
-      reqId: 2,
-      facilityId: 2,
-      status: RequestStatus.APPROVED,
-      action: RequestAction.UPDATE_FACILITY,
-      reqUserId: 3,
-      attributes: [],
-      modifiedAt: '10:20 12-12-2018',
-      modifiedBy: 3
-    },
-    {
-      reqId: 3,
-      facilityId: 5,
-      status: RequestStatus.REJECTED,
-      action: RequestAction.DELETE_FACILITY,
-      reqUserId: 3,
-      attributes: [],
-      modifiedAt: '10:20 12-12-2018',
-      modifiedBy: 3
-    }
-  ];
+  requests: Request[];
 
-  @ViewChild(MatSort) sort: MatSort;
+
+  @ViewChild(MatSort) set matSort(ms: MatSort) {
+    this.sort = ms;
+    this.setDataSource();
+  }
 
   private requestsSubscription: Subscription;
+  private sort: MatSort;
 
   loading = true;
 
-  displayedColumns: string[] = ['reqId', 'facilityId', 'status', 'action'];
+  displayedColumns: string[] = ['id', 'facilityId', 'status', 'action'];
   dataSource: MatTableDataSource<Request>;
+
+  setDataSource() {
+    if (!!this.dataSource) {
+      this.dataSource.sort = this.sort;
+    }
+  }
 
   ngOnInit() {
     this.requestsSubscription = this.requestsService.getAllRequests().subscribe(requests => {
+      this.loading = false;
       this.requests = requests;
       this.dataSource = new MatTableDataSource<Request>(requests);
-      this.dataSource.sort = this.sort;
-      this.loading = false;
     });
   }
 

@@ -4,6 +4,7 @@ import cz.metacentrum.perun.spRegistration.persistence.models.Facility;
 import cz.metacentrum.perun.spRegistration.persistence.models.PerunAttribute;
 import cz.metacentrum.perun.spRegistration.persistence.models.Request;
 import cz.metacentrum.perun.spRegistration.service.exceptions.CannotChangeStatusException;
+import cz.metacentrum.perun.spRegistration.service.exceptions.ResourceNotFoundException;
 import cz.metacentrum.perun.spRegistration.service.exceptions.UnauthorizedActionException;
 
 import java.util.List;
@@ -117,9 +118,10 @@ public interface UserService {
 	 * @param requestId ID of request.
 	 * @param userId ID of user.
 	 * @return Found request.
+	 * @throws ResourceNotFoundException when resource for given id does not exist
 	 * @throws UnauthorizedActionException when user is not authorized to perform this action.
 	 */
-	Request getDetailedRequest(Long requestId, Long userId) throws UnauthorizedActionException;
+	Request getDetailedRequest(Long requestId, Long userId) throws UnauthorizedActionException, ResourceNotFoundException;
 
 	/**
 	 * Get detailed facility.

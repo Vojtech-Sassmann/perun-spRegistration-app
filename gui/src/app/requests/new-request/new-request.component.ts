@@ -46,7 +46,8 @@ export class NewRequestComponent implements OnInit {
       this.loading = false;
     });
 
-    this.translate.get('REQUESTS.NEW_VALUES_ERROR_MESSAGE').subscribe(value => this.errorText = value);
+    this.translate.get('REQUESTS.NEW_VALUES_ERROR_MESSAGE')
+      .subscribe(value => this.errorText = value);
     this.translate.get('REQUESTS.SUCCESSFULLY_SUBMITTED_MESSAGE')
       .subscribe(value => this.successfullySubmittedText = value);
   }
@@ -67,9 +68,7 @@ export class NewRequestComponent implements OnInit {
     this.selected = "oidc";
 
     this.configService.getOidcApplicationItems().subscribe(items => {
-      console.log(items);
       this.applicationItems = NewRequestComponent.sortItems(items);
-      console.log(this.applicationItems);
       this.revealForm();
     });
   }
@@ -97,15 +96,11 @@ export class NewRequestComponent implements OnInit {
     return true;
   }
 
-  saveRequest() {
-
-  }
-
   submitRequest() {
     this.items.forEach(i => i.onFormSubmitted());
 
     if (!this.attributesHasCorrectValues()) {
-      this.snackBar.open(this.errorText, null, {duration: 40000, horizontalPosition: 'end', verticalPosition: 'top'});
+      this.snackBar.open(this.errorText, null, {duration: 6000});
       return;
     }
 
@@ -118,7 +113,7 @@ export class NewRequestComponent implements OnInit {
     });
 
     this.requestsService.createRegistrationRequest(perunAttributes).subscribe(requestId => {
-      this.snackBar.open(this.successfullySubmittedText, null, {duration: 3000, horizontalPosition: 'start'});
+      this.snackBar.open(this.successfullySubmittedText, null, {duration: 6000});
     }, error => {
       console.log("Error");
       console.log(error);

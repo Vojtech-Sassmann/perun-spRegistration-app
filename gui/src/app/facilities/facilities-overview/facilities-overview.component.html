@@ -1,26 +1,10 @@
-<div class="container">
+<div class="container-fluid">
   <mat-spinner class="ml-auto mr-auto mt-3" *ngIf="loading" color=""></mat-spinner>
   <div *ngIf="!loading" class="card mt-4 shadow-sm">
     <div class="card-body">
       <h4 class="card-title">
         {{'FACILITIES.YOUR_FACILITIES' | translate}}
       </h4>
-        <!--<table class="table" app-sortable-table (sorted)="onSorted($event)">
-          <thead>
-            <tr>
-              <th table-name="{{tableName}}" sortable-column="id" sort-direction="asc">{{'FACILITIES.ID' | translate}}</th>
-              <th table-name="{{tableName}}" sortable-column="name">{{'FACILITIES.NAME' | translate}}</th>
-              <th>{{'FACILITIES.DESCRIPTION' | translate}}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let facility of facilities">
-              <th>{{facility.id}}</th>
-              <td>{{facility.name}}</td>
-              <td>{{facility.description}}</td>
-            </tr>
-          </tbody>
-        </table>-->
       <table mat-table matSort [dataSource]="dataSource" class="w-100">
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'FACILITIES.ID' | translate}}</th>

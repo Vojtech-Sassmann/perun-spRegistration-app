@@ -26,5 +26,7 @@ export class RequestsService {
     return this.apiService.post('/register', perunAttributes);
   }
 
-
+  getRequest(id: number): Observable<Request> {
+    return this.apiService.get(`/request/${id}`);
+  }
 }
