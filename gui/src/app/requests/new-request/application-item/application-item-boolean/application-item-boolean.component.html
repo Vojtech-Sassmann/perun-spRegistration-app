@@ -3,11 +3,15 @@
     <div class="w-100">
       <mat-checkbox [(ngModel)]="value">{{translatedName}}</mat-checkbox>
     </div>
-    <fa-icon
-      matTooltip="{{translatedDescription}}"
-      [matTooltipPosition]="'above'"
-      class="m-2 text-secondary fa-lg"
-      [icon]="helpIcon">
-    </fa-icon>
   </div>
+  <form class="d-flex w-100" #form="ngForm">
+    <div class="col-sm-12 d-flex">
+      <div class="w-100">
+        <div>
+          <hr class="hr">
+          <p class="p">{{translatedDescription}}</p>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

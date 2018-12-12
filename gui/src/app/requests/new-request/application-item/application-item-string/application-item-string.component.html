@@ -12,13 +12,8 @@
           required
           type="text"
           id="{{applicationItem.name}}">
+        <mat-hint>{{translatedDescription}}</mat-hint>
       </mat-form-field>
-      <fa-icon
-        matTooltip="{{translatedDescription}}"
-        [matTooltipPosition]="'above'"
-        class="m-2 text-secondary fa-lg"
-        [icon]="helpIcon">
-      </fa-icon>
     </div>
     <div class="col-12 d-flex perun-warn" *ngIf="input.errors?.pattern && input.touched">
       {{'REQUESTS.NEW_INVALID_VALUE' | translate}}
