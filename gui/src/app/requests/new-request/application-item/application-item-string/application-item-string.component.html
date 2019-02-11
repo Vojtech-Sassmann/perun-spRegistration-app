@@ -15,7 +15,7 @@
         <mat-hint>{{translatedDescription}}</mat-hint>
       </mat-form-field>
     </div>
-    <div class="col-12 d-flex perun-warn" *ngIf="input.errors?.pattern && input.touched">
+    <div class="col-12 d-flex perun-warn" *ngIf="!input.valid && input.touched">
       {{'REQUESTS.NEW_INVALID_VALUE' | translate}}
     </div>
   </form>
