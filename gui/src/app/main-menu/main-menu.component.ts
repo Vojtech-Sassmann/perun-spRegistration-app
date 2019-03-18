@@ -14,5 +14,4 @@ export class MainMenuComponent {
   newRequestIcon = faPlus;
 
   value = "asdf";
-
 }

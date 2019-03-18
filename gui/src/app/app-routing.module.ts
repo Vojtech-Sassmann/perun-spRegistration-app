@@ -3,11 +3,16 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {MainMenuComponent} from "./main-menu/main-menu.component";
 import {NotFoundPageComponent} from "./shared/not-found-page/not-found-page.component";
 import {NotAuthorizedPageComponent} from "./shared/not-authorized-page/not-authorized-page.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {
     path: '',
     component: MainMenuComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'requests',
@@ -25,6 +30,7 @@ const routes: Routes = [
     path: '**',
     component: NotFoundPageComponent
   }
+
 ];
 
 @NgModule({

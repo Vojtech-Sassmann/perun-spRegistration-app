@@ -3,6 +3,8 @@
   "NOT_FOUND_PAGE_TITLE": "Requested content does not exist.",
   "NOT_AUTHORIZED_PAGE_TITLE": "You are not allowed to access this content.",
   "HOME_PAGE" : "Home",
+  "LOGIN_MESSAGE": "For continuing to the application, please login.",
+  "LOGIN": "Login",
   "ERROR": {
     "GENERAL_ERROR_TITLE": "Something went wrong.",
     "SERVER_DOWN": "Server is currently offline. Please try it again later."

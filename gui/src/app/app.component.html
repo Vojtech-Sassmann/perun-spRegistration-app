@@ -16,58 +16,56 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav
-                 [mode]="sidebarMode"
-                 class="perun-sidenav"
-                 [(opened)]="sideBarOpened"
-                 [fixedInViewport]="true"
-                 [fixedTopGap]="64">
-      <ul class="navbar-nav">
-        <li class="nav-item p-2" [class.active]="currentUrl !== undefined && currentUrl === '/'">
-          <a class="no-hover-decoration" routerLink="" (click)="closeSideBar()">
-            {{'MENU.HOME' | translate}}
-          </a>
-        </li>
-        <li class="nav-item p-2" [class.active]="currentUrl !== undefined && currentUrl === '/requests'">
-          <a class="no-hover-decoration" routerLink="requests/myRequests" (click)="closeSideBar()">
-            {{'MENU.REQUESTS' | translate}}
-          </a>
-          <ul class="navbar-nav pt-1">
-            <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/myRequests'">
-              <a class="no-hover-decoration" routerLink="/requests/myRequests" (click)="closeSideBar()">
-                {{'MENU.MY_REQUESTS' | translate}}
-              </a>
-            </li>
-            <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/new'">
-              <a class="no-hover-decoration" routerLink="requests/new" (click)="closeSideBar()">
-                {{'MENU.NEW_REQUEST' | translate}}
-              </a>
-            </li>
-            <li
-                *ngIf="isAdmin !== undefined && isAdmin"
-                class="nav-item pl-2 pb-1"
-                [class.active]="currentUrl !== undefined && currentUrl === '/requests/allRequests'">
-              <a class="no-hover-decoration" routerLink="requests/allRequests" (click)="closeSideBar()">
-                {{'MENU.ALL_REQUESTS' | translate}}
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item pt-0 pl-2 pr-2 pb-2" [class.active]="currentUrl !== undefined && currentUrl === '/facilities'">
-          <a class="no-hover-decoration" routerLink="facilities/myFacilities" (click)="closeSideBar()">
-            {{'MENU.FACILITIES' | translate}}
-          </a>
-          <ul class="navbar-nav pt-1">
-            <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/facilities/myFacilities'">
-              <a class="no-hover-decoration" routerLink="/facilities/myFacilities" (click)="closeSideBar()">
-                {{'MENU.MY_FACILITIES' | translate}}
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </mat-sidenav>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav
+               [mode]="sidebarMode"
+               class="perun-sidenav"
+               [(opened)]="sideBarOpened"
+               [fixedInViewport]="true"
+               [fixedTopGap]="64"
+               [hidden]="currentUrl !== undefined && currentUrl === '/login'">
+    <ul class="navbar-nav">
+      <li class="nav-item p-2" [class.active]="currentUrl !== undefined && currentUrl === '/'">
+        <a class="no-hover-decoration" routerLink="" (click)="closeSideBar()">
+          {{'MENU.HOME' | translate}}
+        </a>
+      </li>
+      <li class="nav-item p-2" [class.active]="currentUrl !== undefined && currentUrl === '/requests'">
+        <a class="no-hover-decoration" routerLink="requests/myRequests" (click)="closeSideBar()">
+          {{'MENU.REQUESTS' | translate}}
+        </a>
+        <ul class="navbar-nav pt-1">
+          <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/myRequests'">
+            <a class="no-hover-decoration" routerLink="/requests/myRequests" (click)="closeSideBar()">
+              {{'MENU.MY_REQUESTS' | translate}}
+            </a>
+          </li>
+          <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/new'">
+            <a class="no-hover-decoration" routerLink="requests/new" (click)="closeSideBar()">
+              {{'MENU.NEW_REQUEST' | translate}}
+            </a>
+          </li>
+          <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/allRequests'">
+            <a class="no-hover-decoration" routerLink="requests/allRequests" (click)="closeSideBar()">
+              {{'MENU.ALL_REQUESTS' | translate}}
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item pt-0 pl-2 pr-2 pb-2" [class.active]="currentUrl !== undefined && currentUrl === '/facilities'">
+        <a class="no-hover-decoration" routerLink="facilities/myFacilities" (click)="closeSideBar()">
+          {{'MENU.FACILITIES' | translate}}
+        </a>
+        <ul class="navbar-nav pt-1">
+          <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/facilities/myFacilities'">
+            <a class="no-hover-decoration" routerLink="/facilities/myFacilities" (click)="closeSideBar()">
+              {{'MENU.MY_FACILITIES' | translate}}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </mat-sidenav>
 
     <mat-sidenav-content class="content-container">
       <div class="row mr-0 ml-0">
