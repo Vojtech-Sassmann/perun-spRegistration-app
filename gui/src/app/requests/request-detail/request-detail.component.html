@@ -34,7 +34,6 @@
                 name="{{item.name}}"
                 id="{{item.name}}"
                 type="text">
-              <!--{{item.comment | requestItemValue}}-->
             </mat-form-field>
             <div *ngIf="!isUserAdmin">{{item.comment | requestItemValue}}</div>
           </td>
