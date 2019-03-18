@@ -75,7 +75,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.userService.isUserAdmin().subscribe(value => {
       AppComponent.userAdmin = value;
-      AppComponent.userAdmin = true;
 
       this.configService.getPageConfig().subscribe(pageConfig => {
           AppComponent.pageConfig = pageConfig;
