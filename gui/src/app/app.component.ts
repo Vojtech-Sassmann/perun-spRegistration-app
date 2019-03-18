@@ -14,6 +14,7 @@ import {PageConfig} from "./core/models/PageConfig";
 export class AppComponent implements OnInit {
 
   sideBarOpened = false;
+  onPageWhereSideBarIsHihhen = false;
   loading = true;
 
   lastScreenWidth: number;
@@ -21,6 +22,10 @@ export class AppComponent implements OnInit {
   minWidth = 768;
   sidebarMode = 'side';
   currentUrl: string;
+
+  static sideNavHiddenOn : Array<string> = [
+    '/login'
+  ];
 
   static pageConfig: PageConfig;
   static userAdmin: boolean;
@@ -52,6 +57,11 @@ export class AppComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
 
+    if (this.onPageWhereSideBarIsHihhen) {
+      this.sideBarOpened = false;
+      return;
+    }
+    
     if (window.innerWidth > this.minWidth) {
       this.sideBarOpened = true;
       this.sidebarMode = 'side';
@@ -86,6 +96,13 @@ export class AppComponent implements OnInit {
           this.loading = false;
       });
     });
+
+    this.router.events.subscribe((val : NavigationEnd) => {
+      if (val instanceof NavigationEnd) {
+        this.onPageWhereSideBarIsHihhen = AppComponent.sideNavHiddenOn.includes(val.urlAfterRedirects);
+        this.getScreenSize();
+      }
+    })
   }
 
   public static isUserAdmin() : boolean {

@@ -23,7 +23,7 @@
                [(opened)]="sideBarOpened"
                [fixedInViewport]="true"
                [fixedTopGap]="64"
-               [hidden]="currentUrl !== undefined && currentUrl === '/login'">
+  >
     <ul class="navbar-nav">
       <li class="nav-item p-2" [class.active]="currentUrl !== undefined && currentUrl === '/'">
         <a class="no-hover-decoration" routerLink="" (click)="closeSideBar()">
@@ -45,7 +45,9 @@
               {{'MENU.NEW_REQUEST' | translate}}
             </a>
           </li>
-          <li class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/allRequests'">
+          <li
+            *ngIf="isAdmin !== undefined && isAdmin"
+            class="nav-item pl-2 pb-1" [class.active]="currentUrl !== undefined && currentUrl === '/requests/allRequests'">
             <a class="no-hover-decoration" routerLink="requests/allRequests" (click)="closeSideBar()">
               {{'MENU.ALL_REQUESTS' | translate}}
             </a>

@@ -91,15 +91,14 @@ th {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  background-color: #fafafa !important;
+}
 
 // HACK to disable stepper navigation by clicking header items
 .mat-horizontal-stepper-header{
   pointer-events: none !important;
-}
-
-.mat-horizontal-content-container {
-  //padding: 0 !important;
 }
 
 // HACK to reduce whitespace in request form

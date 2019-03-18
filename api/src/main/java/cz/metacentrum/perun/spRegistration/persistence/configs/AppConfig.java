@@ -49,7 +49,7 @@ public class AppConfig {
 			enLocale.load(en);
 			csLocale.load(cs);
 		} catch (IOException e) {
-			throw new RuntimeException("Cannot load translations");
+			throw new RuntimeException("Cannot load translations", e);
 		}
 	}
 
