@@ -22,11 +22,12 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatExpansionModule,
-  MatChipsModule
+  MatChipsModule, MatMenuModule
 } from "@angular/material";
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { NotAuthorizedPageComponent } from './not-authorized-page/not-authorized-page.component';
+import {UserFullNamePipe} from "./pipes/user-nav-info.pipe";
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { NotAuthorizedPageComponent } from './not-authorized-page/not-authorized
     ReactiveFormsModule,
     MatDialogModule,
     MatExpansionModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule
   ],
   declarations: [
     SortableColumnComponent,
@@ -61,7 +63,8 @@ import { NotAuthorizedPageComponent } from './not-authorized-page/not-authorized
     PerunFooterComponent,
     ErrorDialogComponent,
     NotFoundPageComponent,
-    NotAuthorizedPageComponent
+    NotAuthorizedPageComponent,
+    UserFullNamePipe
   ],
   exports: [
     FontAwesomeModule,
@@ -89,7 +92,9 @@ import { NotAuthorizedPageComponent } from './not-authorized-page/not-authorized
     MatExpansionModule,
     ReactiveFormsModule,
     MatProgressBarModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule,
+    UserFullNamePipe
   ],
   entryComponents: [
     ErrorDialogComponent

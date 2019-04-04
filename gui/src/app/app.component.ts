@@ -5,6 +5,7 @@ import { HostListener } from "@angular/core";
 import {UsersService} from "./core/services/users.service";
 import {ConfigService} from "./core/services/config.service";
 import {PageConfig} from "./core/models/PageConfig";
+import {User} from "./core/models/User";
 
 @Component({
   selector: 'app-root',
@@ -30,13 +31,13 @@ export class AppComponent implements OnInit {
   ];
 
   static pageConfig: PageConfig;
-  static userAdmin: boolean;
+  static user: User;
 
   logoUrl : String = '';
   appTitle : String = '';
   footerHtml : String = '<div></div>';
 
-  userLoggedIn = false;
+  user: User;
   isAdmin = false;
 
   constructor(
@@ -89,8 +90,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.isUserAdmin().subscribe(value => {
-      AppComponent.userAdmin = value;
+    this.userService.getUser().subscribe(user => {
+      AppComponent.user = user;
+      this.user = user;
 
       this.configService.getPageConfig().subscribe(pageConfig => {
           AppComponent.pageConfig = pageConfig;
@@ -98,7 +100,7 @@ export class AppComponent implements OnInit {
           this.logoUrl = pageConfig.logoUrl;
           this.footerHtml = pageConfig.footerHtml;
 
-          this.isAdmin = AppComponent.userAdmin;
+          this.isAdmin = AppComponent.user.isAdmin;
           this.loading = false;
       });
     });
@@ -112,10 +114,14 @@ export class AppComponent implements OnInit {
   }
 
   public static isUserAdmin() : boolean {
-    return this.userAdmin;
+    return this.user.isAdmin;
   }
 
   public static getPageConfig() : PageConfig {
     return this.pageConfig;
+  }
+
+  public static getUser() : User {
+    return AppComponent.user;
   }
 }

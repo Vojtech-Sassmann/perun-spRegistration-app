@@ -13,6 +13,25 @@
       <a routerLink="" class="site-title ml-2">
        {{ appTitle }}
       </a>
+      <div class="user-info">
+<!--        TODO: Prepared dropdown if needed in future-->
+<!--        <div class="dropdown">-->
+<!--          <button mat-icon-button class="dropdown-toggle" type="button" id="userDropDownButton" data-toggle="dropdown">-->
+<!--            <mat-icon>-->
+<!--              person-->
+<!--            </mat-icon>-->
+<!--          </button>-->
+<!--          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+<!--            <div class="dropdown-item-text" disabled="true">{{user | UserFullName}}</div>-->
+<!--          </div>-->
+<!--        </div>-->
+        <mat-icon>
+          person
+        </mat-icon>
+        <div>
+          {{user | UserFullName}}
+        </div>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
